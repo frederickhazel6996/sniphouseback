@@ -94,7 +94,7 @@ const Order = ({ orders, fetchOrders, updateOrder }) => {
     ));
 
     let itemsBar = number_items.map((items, index) => (
-        <Accordion className="mt-5">
+        <Accordion className="mt-5" key={items.product.product_id}>
             <Card>
                 <Card.Header>
                     <Accordion.Toggle as={Button} variant="link" eventKey="0">
@@ -104,15 +104,180 @@ const Order = ({ orders, fetchOrders, updateOrder }) => {
                 <Accordion.Collapse eventKey="0">
                     <Card.Body>
                         <Container>
-                            <Row className="mt-2">
-                                <Col>
-                                    {' '}
-                                    <span className="pre-text">Size : </span>
-                                    <span className="post-text">
-                                        {items.size}
-                                    </span>
-                                </Col>
-                            </Row>
+                            <h3>Measurements(cm)</h3>
+                            {items.type === 1 ? (
+                                <Row className="mt-2">
+                                    <Col>
+                                        {' '}
+                                        <span className="pre-text">
+                                            Size :{' '}
+                                        </span>
+                                        <span className="post-text">
+                                            {items.size}
+                                        </span>
+                                    </Col>
+                                </Row>
+                            ) : (
+                                <>
+                                    <Row>
+                                        {' '}
+                                        <Col>
+                                            {' '}
+                                            <span className="pre-text">
+                                                Across back :{' '}
+                                            </span>
+                                            <span className="post-text">
+                                                {items.size.across_back}
+                                            </span>
+                                        </Col>
+                                        <Col>
+                                            {' '}
+                                            <span className="pre-text">
+                                                Shoulder :{' '}
+                                            </span>
+                                            <span className="post-text">
+                                                {items.size.shoulder}
+                                            </span>
+                                        </Col>
+                                        <Col>
+                                            {' '}
+                                            <span className="pre-text">
+                                                High bust :{' '}
+                                            </span>
+                                            <span className="post-text">
+                                                {items.size.high_bust}
+                                            </span>
+                                        </Col>
+                                        <Col>
+                                            {' '}
+                                            <span className="pre-text">
+                                                Bust :{' '}
+                                            </span>
+                                            <span className="post-text">
+                                                {items.size.bust}
+                                            </span>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        {' '}
+                                        <Col>
+                                            {' '}
+                                            <span className="pre-text">
+                                                Shoulder to nipple :{' '}
+                                            </span>
+                                            <span className="post-text">
+                                                {items.size.shoulder_to_nipple}
+                                            </span>
+                                        </Col>
+                                        <Col>
+                                            {' '}
+                                            <span className="pre-text">
+                                                Shoulder to waist :{' '}
+                                            </span>
+                                            <span className="post-text">
+                                                {items.size.shoulder_to_waist}
+                                            </span>
+                                        </Col>
+                                        <Col>
+                                            {' '}
+                                            <span className="pre-text">
+                                                Around shoulder :{' '}
+                                            </span>
+                                            <span className="post-text">
+                                                {items.size.around_shoulder}
+                                            </span>
+                                        </Col>
+                                        <Col>
+                                            {' '}
+                                            <span className="pre-text">
+                                                Shoulder to underbust :{' '}
+                                            </span>
+                                            <span className="post-text">
+                                                {
+                                                    items.size
+                                                        .shoulder_to_underbust
+                                                }
+                                            </span>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col>
+                                            {' '}
+                                            <span className="pre-text">
+                                                Innermost waist :{' '}
+                                            </span>
+                                            <span className="post-text">
+                                                {items.size.innermost_waist}
+                                            </span>
+                                        </Col>
+                                        <Col>
+                                            {' '}
+                                            <span className="pre-text">
+                                                Hip :{' '}
+                                            </span>
+                                            <span className="post-text">
+                                                {items.size.hip}
+                                            </span>
+                                        </Col>
+                                        <Col>
+                                            {' '}
+                                            <span className="pre-text">
+                                                Shoulder to knee :{' '}
+                                            </span>
+                                            <span className="post-text">
+                                                {items.size.shoulder_to_knee}
+                                            </span>
+                                        </Col>
+                                        <Col>
+                                            {' '}
+                                            <span className="pre-text">
+                                                Dress Length :{' '}
+                                            </span>
+                                            <span className="post-text">
+                                                {items.size.dress_length}
+                                            </span>
+                                        </Col>
+                                    </Row>
+                                    <Row className="mb-5">
+                                        {' '}
+                                        <Col>
+                                            {' '}
+                                            <span className="pre-text">
+                                                Around arm :{' '}
+                                            </span>
+                                            <span className="post-text">
+                                                {items.size.around_arm}
+                                            </span>
+                                        </Col>{' '}
+                                        <Col>
+                                            {' '}
+                                            <span className="pre-text">
+                                                Armhole :{' '}
+                                            </span>
+                                            <span className="post-text">
+                                                {items.size.armhole}
+                                            </span>
+                                        </Col>{' '}
+                                        <Col>
+                                            {' '}
+                                            <span className="pre-text">
+                                                Nipple to nipple :{' '}
+                                            </span>
+                                            <span className="post-text">
+                                                {items.size.nipple_to_nipple}
+                                            </span>
+                                        </Col>
+                                        <Col>
+                                            {' '}
+                                            <span className="pre-text">
+                                                Extra :{' '}
+                                            </span>
+                                            <span className="post-text">0</span>
+                                        </Col>
+                                    </Row>
+                                </>
+                            )}
+
                             <Row className="mt-2">
                                 <Col>
                                     <span className="pre-text">
