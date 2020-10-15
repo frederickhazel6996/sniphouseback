@@ -181,6 +181,16 @@ const Order = ({ orders, fetchOrders, updateOrder }) => {
                     <Row className="mt-2">
                         <Col>
                             <span className="pre-text">
+                                Payment Reference :{' '}
+                            </span>
+                            <span className="post-text">
+                                {orderView.payment_reference}
+                            </span>
+                        </Col>
+                    </Row>
+                    <Row className="mt-2">
+                        <Col>
+                            <span className="pre-text">
                                 Buyer First Name :{' '}
                             </span>
                             <span className="post-text">
