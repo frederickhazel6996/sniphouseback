@@ -18,30 +18,21 @@ Route.post(
 
             const { name, body } = req.body;
 
-            let temp_id = `BL${spawn
+            let temp_id = `BLOG${spawn
                 .spawnAlphaNumericLength(10)
                 .toUpperCase()}`;
-            let picture = 'ur';
+
             const blog = new Blogs({
-                name: name.toLowerCase(),
+                name,
 
                 id: temp_id,
-                picture,
+                picture: 'unknown',
+                author: 'SnipHouse',
                 body,
-
                 date_created: moment().format('MMM Do YYYY')
             });
-
-            await Blogs.findOne({
-                id: temp_id
-            }).then(blogs => {
-                if (!blogs) {
-                    blog.save().then(blog => {
-                        res.status(201).send('Added');
-                    });
-                } else {
-                    res.status(400).send('Blog Already Exists');
-                }
+            await blog.save().then(blog => {
+                res.status(201).send('Added');
             });
         } catch (error) {
             res.status(422).status('Internal Server error');

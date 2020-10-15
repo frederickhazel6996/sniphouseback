@@ -16,7 +16,7 @@ const UIBasicBadges = React.lazy(() =>
 const Users = React.lazy(() => import('./Pages/Users/Users'));
 const Products = React.lazy(() => import('./Pages/Products/Products'));
 const Blogs = React.lazy(() => import('./Pages/Blog/blog'));
-// const Ras = React.lazy(() => import('./Pages/Ras/Ras'));
+const Orders = React.lazy(() => import('./Pages/Order/Order'));
 // const All = React.lazy(() => import('./Pages/App_users/Users'));
 
 const UIBasicBreadcrumbPagination = React.lazy(() =>
@@ -54,6 +54,7 @@ const routes = [
     { path: '/users', exact: true, name: 'Users', component: Users },
     { path: '/products', exact: true, name: 'Products', component: Products },
     { path: '/blogs', exact: true, name: 'Blogs', component: Blogs },
+    { path: '/orders', exact: true, name: 'Orders', component: Orders },
     /* 
     { path: '/rat', exact: true, name: 'Rat', component: Rats },
     { path: '/ras', exact: true, name: 'Ras', component: Ras },

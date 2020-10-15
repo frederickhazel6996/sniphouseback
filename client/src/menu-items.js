@@ -21,6 +21,13 @@ export default {
                     icon: 'feather icon-users'
                 },
                 {
+                    id: 'orders',
+                    title: 'Orders',
+                    type: 'item',
+                    url: '/orders',
+                    icon: 'feather icon-box'
+                },
+                {
                     id: 'products',
                     title: 'Products',
                     type: 'item',

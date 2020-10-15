@@ -14,7 +14,9 @@ import {
     FETCH_BLOGS,
     ADD_PRODUCT,
     FETCH_PRODUCT,
-    DELETE_PRODUCT
+    DELETE_PRODUCT,
+    FETCH_ORDERS,
+    UPDATE_ORDER
 } from './types';
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
@@ -34,6 +36,8 @@ let url10 = '/api/product/delete-product';
 let url11 = '/api/blog/add-blog';
 let url12 = '/api/blog/fetch-blogs';
 let url13 = '/api/blog/delete-blog';
+let url14 = '/api/order/fetch-orders';
+let url15 = '/api/order/update-order';
 
 let notyf = new Notyf({
     position: {
@@ -196,6 +200,38 @@ export function addBlog(data) {
             });
     };
 }
+export function updateOrder(data) {
+    return function (dispatch) {
+        dispatch(loading());
+        axios
+            .post(
+                url15,
+                {
+                    id: data
+                },
+                {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }
+            )
+            .then(response => {
+                notyf.success('Order Updated');
+                dispatch({ type: STOP_LOADING });
+            })
+            .catch(error => {
+                if (error) {
+                    if (error.response.status === 500) {
+                        notyf.error('No Internet');
+                    } else {
+                        notyf.error('User Update Failed');
+                    }
+
+                    dispatch({ type: STOP_LOADING });
+                }
+            });
+    };
+}
 export function updateUser(data) {
     return function (dispatch) {
         dispatch(loading());
@@ -272,6 +308,27 @@ export function fetchBlogs() {
             .catch(error => {
                 if (error) {
                     notyf.error('No Internet');
+                }
+            });
+    };
+}
+export function fetchOrders() {
+    return function (dispatch) {
+        axios
+            .get(
+                url14,
+
+                {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }
+            )
+            .then(response => {
+                dispatch({ type: FETCH_ORDERS, data: response.data });
+            })
+            .catch(error => {
+                if (error) {
                 }
             });
     };

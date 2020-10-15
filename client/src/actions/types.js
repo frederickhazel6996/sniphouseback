@@ -22,3 +22,5 @@ export const DELETE_PRODUCT = 'DELETE_PRODUCT';
 export const STOP_LOADING = 'STOP_LOADING';
 
 export const TIP_MESSAGE = 'TIP_MESSAGE';
+export const FETCH_ORDERS = 'FETCH_ORDERS';
+export const UPDATE_ORDER = 'UPDATE_ORDER';

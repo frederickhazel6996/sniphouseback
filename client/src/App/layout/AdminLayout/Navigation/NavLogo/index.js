@@ -16,7 +16,7 @@ const navLogo = props => {
             <div className="navbar-brand header-logo">
                 <a href={DEMO.BLANK_LINK} className="b-brand">
                     <div className="b-bg">
-                        <i class="fas fa-bicycle" />
+                        <i className="fas fa-bicycle" />
                     </div>
                     <span className="b-title">{name}</span>
                 </a>
