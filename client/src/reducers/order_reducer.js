@@ -1,7 +1,8 @@
-import { FETCH_ORDERS } from '../actions/types';
+import { FETCH_ORDERS, FETCH_BOOKING } from '../actions/types';
 
 let INITIAL_STATE = {
-    orders: []
+    orders: [],
+    booking: []
 };
 
 export default function (state = INITIAL_STATE, action) {
@@ -9,6 +10,9 @@ export default function (state = INITIAL_STATE, action) {
         case FETCH_ORDERS:
             let tempOrders = action.data;
             return { ...state, orders: tempOrders };
+        case FETCH_BOOKING:
+            let tempBooking = action.data;
+            return { ...state, booking: tempBooking };
         default:
             return state;
     }

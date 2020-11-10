@@ -23,4 +23,5 @@ export const STOP_LOADING = 'STOP_LOADING';
 
 export const TIP_MESSAGE = 'TIP_MESSAGE';
 export const FETCH_ORDERS = 'FETCH_ORDERS';
+export const FETCH_BOOKING = 'FETCH_BOOKING';
 export const UPDATE_ORDER = 'UPDATE_ORDER';

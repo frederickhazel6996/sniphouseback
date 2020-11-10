@@ -28,6 +28,13 @@ export default {
                     icon: 'feather icon-box'
                 },
                 {
+                    id: 'bookings',
+                    title: 'Bookings',
+                    type: 'item',
+                    url: '/bookings',
+                    icon: 'feather icon-clipboard'
+                },
+                {
                     id: 'products',
                     title: 'Products',
                     type: 'item',

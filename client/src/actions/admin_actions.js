@@ -16,7 +16,8 @@ import {
     FETCH_PRODUCT,
     DELETE_PRODUCT,
     FETCH_ORDERS,
-    UPDATE_ORDER
+    UPDATE_ORDER,
+    FETCH_BOOKING
 } from './types';
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
@@ -38,6 +39,7 @@ let url12 = '/api/blog/fetch-blogs';
 let url13 = '/api/blog/delete-blog';
 let url14 = '/api/order/fetch-orders';
 let url15 = '/api/order/update-order';
+let url16 = '/api/booking/fetch-bookings';
 
 let notyf = new Notyf({
     position: {
@@ -283,6 +285,27 @@ export function fetchUsers() {
             )
             .then(response => {
                 dispatch({ type: FETCH_USERS, users: response.data });
+            })
+            .catch(error => {
+                if (error) {
+                }
+            });
+    };
+}
+export function fetchBookings() {
+    return function (dispatch) {
+        axios
+            .get(
+                url16,
+
+                {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }
+            )
+            .then(response => {
+                dispatch({ type: FETCH_BOOKING, data: response.data });
             })
             .catch(error => {
                 if (error) {

@@ -17,6 +17,7 @@ const Users = React.lazy(() => import('./Pages/Users/Users'));
 const Products = React.lazy(() => import('./Pages/Products/Products'));
 const Blogs = React.lazy(() => import('./Pages/Blog/blog'));
 const Orders = React.lazy(() => import('./Pages/Order/Order'));
+const Bookings = React.lazy(() => import('./Pages/Bookings/Bookings'));
 // const All = React.lazy(() => import('./Pages/App_users/Users'));
 
 const UIBasicBreadcrumbPagination = React.lazy(() =>
@@ -55,6 +56,7 @@ const routes = [
     { path: '/products', exact: true, name: 'Products', component: Products },
     { path: '/blogs', exact: true, name: 'Blogs', component: Blogs },
     { path: '/orders', exact: true, name: 'Orders', component: Orders },
+    { path: '/bookings', exact: true, name: 'Bookings', component: Bookings },
     /* 
     { path: '/rat', exact: true, name: 'Rat', component: Rats },
     { path: '/ras', exact: true, name: 'Ras', component: Ras },

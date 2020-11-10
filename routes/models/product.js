@@ -7,6 +7,7 @@ var productSchema = new Schema({
     subcategory: String,
     description: String,
     price: String,
+    product_collection: String,
     id: String,
     picturea: String,
     pictureb: String,
