@@ -372,6 +372,16 @@ const Order = ({ orders, fetchOrders, updateOrder }) => {
                     <Row className="mt-2">
                         <Col>
                             <span className="pre-text">
+                                Delivery Cost (GHC) :{' '}
+                            </span>
+                            <span className="post-text">
+                                {orderView.delivery_cost}
+                            </span>
+                        </Col>
+                    </Row>
+                    <Row className="mt-2">
+                        <Col>
+                            <span className="pre-text">
                                 Buyer First Name :{' '}
                             </span>
                             <span className="post-text">

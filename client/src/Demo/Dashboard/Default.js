@@ -6,7 +6,7 @@ import DEMO from '../../store/constant';
 import BarDiscreteChart from '../Charts/Nvd3Chart/BarDiscreteChart';
 import RPT from 'react-proptypes';
 import { withRouter } from 'react-router-dom';
-import { fetchProducts } from '../../actions/admin_actions';
+import { fetchProducts, fetchOrders } from '../../actions/admin_actions';
 import { connect } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import avatar1 from '../../assets/images/user/avatar-1.jpg';
@@ -18,12 +18,16 @@ const Dashboard = ({
     totalUsers,
     totalUsersInfo,
     fetchProducts,
-    totalProducts
+    totalProducts,
+    fetchOrders,
+    orderLength
 }) => {
     useEffect(() => {
         fetchProducts();
     }, []);
-
+    useEffect(() => {
+        fetchOrders();
+    }, []);
     const [pagination_number, setpagination_number] = useState(1);
     let pagination_division = 5;
     let active = pagination_number;
@@ -129,7 +133,7 @@ const Dashboard = ({
                                 <div className="col-9">
                                     <h2 className="f-w-300 d-flex align-items-center m-b-0">
                                         <i className="feather icon-arrow-up text-c-green f-30 m-r-5" />{' '}
-                                        {totalUsers}
+                                        {orderLength}
                                     </h2>
                                 </div>
 
@@ -152,22 +156,7 @@ const Dashboard = ({
                         </Card.Body>
                     </Card>
                 </Col>
-                <Col md={6} xl={4}>
-                    <Card className="card-event">
-                        <Card.Body>
-                            <div className="row align-items-center justify-content-center">
-                                <div className="col">
-                                    <h5 className="m-0">Orders Today</h5>
-                                </div>
-                            </div>
-                            <h2 className="mt-2 f-w-300">0</h2>
-                            <h6 className="text-muted mt-3 mb-0">
-                                {moment().format('MMMM Do YYYY')}
-                            </h6>
-                            <i className="fa fa-angellist text-c-purple f-50" />
-                        </Card.Body>
-                    </Card>
-                </Col>
+
                 <Col md={6} xl={4}>
                     <Card className="card-event">
                         <Card.Body>
@@ -214,7 +203,7 @@ const mapStateToProps = state => {
         username: state.admin.username,
         totalUsers: state.admin.totalUsers,
         totalProducts: state.product.number_products,
-
+        orderLength: state.order.orderLength,
         totalUsersInfo: state.admin.users
     };
 };
@@ -223,6 +212,9 @@ const mapDispatchtoProps = dispatch => {
     return {
         fetchProducts: () => {
             dispatch(fetchProducts());
+        },
+        fetchOrders: () => {
+            dispatch(fetchOrders());
         }
     };
 };
@@ -231,7 +223,9 @@ Dashboard.propTypes = {
     history: RPT.object,
     totalUsers: RPT.string,
     fetchProducts: RPT.func,
-    totalUsersInfo: RPT.array
+    fetchOrders: RPT.func,
+    totalUsersInfo: RPT.array,
+    orderLength: RPT.any
 };
 
 export default connect(
