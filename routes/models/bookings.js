@@ -13,6 +13,7 @@ var bookingSchema = new Schema({
     last_name: String,
     phone_number: String,
     booking_id: String,
+    booking_type: String,
     date_created: String
 });
 

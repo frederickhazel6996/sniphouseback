@@ -151,6 +151,32 @@ const Bookings = ({ booking, fetchBookings, updateOrder }) => {
                     </Row>
                     <Row className="mt-2">
                         <Col>
+                            <span className="pre-text">Date : </span>
+                            <span className="post-text">
+                                {orderView.date.split('T')[0].split('-')[2]}/
+                                {orderView.date.split('T')[0].split('-')[1]}/
+                                {orderView.date.split('T')[0].split('-')[0]}
+                            </span>
+                        </Col>{' '}
+                    </Row>
+                    <Row className="mt-2">
+                        <Col>
+                            <span className="pre-text">Time : </span>
+                            <span className="post-text">
+                                {orderView.date.split('T')[1]}
+                            </span>
+                        </Col>{' '}
+                    </Row>
+                    <Row className="mt-2">
+                        <Col>
+                            <span className="pre-text">Booking Type : </span>
+                            <span className="post-text">
+                                {orderView.booking_type}
+                            </span>
+                        </Col>{' '}
+                    </Row>
+                    <Row className="mt-2">
+                        <Col>
                             <span className="pre-text">Booking Reason : </span>
                             <span className="post-text">
                                 {orderView.reason}

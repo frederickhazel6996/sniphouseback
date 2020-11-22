@@ -7,7 +7,7 @@ Route.get('/', async function (req, res) {
             if (!blog) {
                 return res.status(400).send('No Admins');
             } else {
-                return res.status(200).json(blog);
+                return res.status(200).json(blog.reverse());
             }
         });
     } catch (err) {
