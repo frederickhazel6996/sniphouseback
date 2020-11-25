@@ -179,7 +179,7 @@ const Dashboard = ({
                 <Col md={12} xl={12}>
                     <Card className="Recent-Users">
                         <Card.Header>
-                            <Card.Title as="h5">Recent Orders</Card.Title>
+                            <Card.Title as="h5">Recent</Card.Title>
                         </Card.Header>
                         <Card.Body className="px-0 py-2">
                             <div>
