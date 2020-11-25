@@ -20,7 +20,8 @@ const Dashboard = ({
     fetchProducts,
     totalProducts,
     fetchOrders,
-    orderLength
+    orderLength,
+    order
 }) => {
     useEffect(() => {
         fetchProducts();
@@ -204,7 +205,8 @@ const mapStateToProps = state => {
         totalUsers: state.admin.totalUsers,
         totalProducts: state.product.number_products,
         orderLength: state.order.orderLength,
-        totalUsersInfo: state.admin.users
+        totalUsersInfo: state.admin.users,
+        orders: state.order.orders
     };
 };
 
@@ -225,7 +227,8 @@ Dashboard.propTypes = {
     fetchProducts: RPT.func,
     fetchOrders: RPT.func,
     totalUsersInfo: RPT.array,
-    orderLength: RPT.any
+    orderLength: RPT.any,
+    orders: RPT.array
 };
 
 export default connect(

@@ -24,6 +24,7 @@ import '../Order/order.scss';
 const Bookings = ({ booking, fetchBookings, updateOrder }) => {
     useEffect(() => {
         fetchBookings();
+        console.log(booking);
     }, []);
 
     const [show, setShow] = useState(false);
@@ -151,11 +152,23 @@ const Bookings = ({ booking, fetchBookings, updateOrder }) => {
                     </Row>
                     <Row className="mt-2">
                         <Col>
-                            <span className="pre-text">Date : </span>
+                            <span className="pre-text">Booking Date : </span>
                             <span className="post-text">
-                                {orderView.date.split('T')[0].split('-')[2]}/
-                                {orderView.date.split('T')[0].split('-')[1]}/
+                                {orderView.date !== undefined
+                                    ? orderView.date
+                                          .split('T')[0]
+                                          .split('-')[2] +
+                                      ' ' +
+                                      orderView.date
+                                          .split('T')[0]
+                                          .split('-')[1] +
+                                      ' ' +
+                                      orderView.date.split('T')[0].split('-')[0]
+                                    : null}
+                                {/*  {orderView.date.split('T')[0].split('-')[1]}
                                 {orderView.date.split('T')[0].split('-')[0]}
+
+                                {orderView.date} */}
                             </span>
                         </Col>{' '}
                     </Row>
@@ -163,7 +176,9 @@ const Bookings = ({ booking, fetchBookings, updateOrder }) => {
                         <Col>
                             <span className="pre-text">Time : </span>
                             <span className="post-text">
-                                {orderView.date.split('T')[1]}
+                                {orderView.date !== undefined
+                                    ? orderView.date.split('T')[1]
+                                    : null}
                             </span>
                         </Col>{' '}
                     </Row>
